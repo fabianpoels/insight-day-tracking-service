@@ -41,3 +41,14 @@ Then start the server:
 ```
 foreman start
 ```
+
+## Redirect
+
+The param `url` has to be specified to trigger the redirect, eg:
+```
+localhost:3000?url=additive.eu
+```
+
+## Dashboard
+
+The dashboard can be visited at `localhost:3000/dashboard`
