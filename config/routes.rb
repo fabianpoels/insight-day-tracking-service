@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/", to: "tracking#track"
+  get "dashboard", to: "dashboard#index"
 end

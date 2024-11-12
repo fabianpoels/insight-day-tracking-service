@@ -1,0 +1,20 @@
+<h1>Tracking Dashboard</h1>
+<ul>
+  <li>Total visits tracked: <%= @total_count %></li>
+  <li>Unique visitors: <%= @unique_visitors %></li>
+</ul>
+<h2>URLs</h2>
+<table>
+  <thead>
+    <th>URL</th>
+    <th>Count</th>
+  </thead>
+  <tbody>
+    <% @urls.each do |url| %>
+      <tr>
+        <td><%= url[0] %></td>
+        <td><%= url[1] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
