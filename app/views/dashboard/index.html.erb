@@ -3,6 +3,22 @@
   <li>Total visits tracked: <%= @total_count %></li>
   <li>Unique visitors: <%= @unique_visitors %></li>
 </ul>
+<h2>Requests over time</h2>
+<table>
+  <thead>
+    <th>Date</th>
+    <th>Count</th>
+  </thead>
+  <tbody>
+    <% @requests_by_date.each do |date| %>
+      <tr>
+        <td><%= date[0] %></td>
+        <td><%= date[1] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <h2>URLs</h2>
 <table>
   <thead>
