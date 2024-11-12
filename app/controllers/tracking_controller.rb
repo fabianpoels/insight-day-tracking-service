@@ -6,20 +6,23 @@ class TrackingController < ApplicationController
 
     # render the fallback page when no url is present
     if url.blank?
-      render "track"
+      render "no_url"
       return
     end
+
+    # add the protocol if it is missing from the url
+    url = url.match(/https?:\/\//) ? url : "http://#{url}"
 
     TrackingService.call(
       ip: request.remote_ip,
       user_agent: request.headers['User-Agent'],
-      url: params[:q],
+      url: url,
       referrer: request.referrer,
       language: request.headers['Accept-Language'],
       uuid: session[:uuid]
     )
 
-    # redirect to the provided url
+    redirect_to url, allow_other_host: true
   end
 
   private
