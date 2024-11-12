@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby and Rails
 
-Things you may want to cover:
+Make sure you have the correct Ruby and Rails versions:
 
-* Ruby version
+ruby-3.3.5
+rails 7.2.1
 
-* System dependencies
+## Postgres and Redis
 
-* Configuration
+The application requires a connection to both a Postgres and Redis database. The Postgres connection can be configured in the next step.
 
-* Database creation
+## Env
 
-* Database initialization
+Copy the example `.env.example` to `.env` and update the required values
 
-* How to run the test suite
+## Running the application
 
-* Services (job queues, cache servers, search engines, etc.)
+Install the required gems
 
-* Deployment instructions
+```
+bundle install
+```
 
-* ...
+Create and migrate the database
+
+```
+bin/rails db:create
+bin/rails db:migrate
+```
+
+The application uses [Foreman](https://github.com/ddollar/foreman) to run both the main server and the sidekiq queue.
+Install the gem:
+
+```
+gem install foreman
+```
+
+Then start the server:
+```
+foreman start
+```
